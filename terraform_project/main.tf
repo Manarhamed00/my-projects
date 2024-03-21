@@ -1,13 +1,13 @@
 
 module "ec2_instances" {
-  source  = "../myproject/modules/ec2_instance"
+  source  = "../terraform_project/modules/ec2_instance"
   ami                    = var.ami
   instance_type_module = var.instance_type
   availability_zone = var.availability_zone
 }
 
 module "network" {
-  source  = "../myproject/modules/network"
+  source  = "../terraform_project/modules/network"
   cidr_block_subnet = var.cidr_block_subnet
   private_subnet = var.private_subnet
   public_subnets = var.public_subnets
@@ -16,13 +16,13 @@ module "network" {
 }
 
 module "website_s3_bucket" {
-  source = "../myproject/modules/s3bucket"
+  source = "../terraform_project/modules/s3bucket"
 
   bucket_name = var.bucket_name
 
 }
 module "security_group" {
-  source = "../myproject/modules/security_group"
+  source = "../terraform_project/modules/security_group"
 
 
 
